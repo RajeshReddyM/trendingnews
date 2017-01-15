@@ -104,7 +104,9 @@
 	            var _this2 = this;
 
 	            var apiKey = '374c72675fbf452297caf055174956f7';
-	            _axios2.default.get('https://newsapi.org/v1/sources?apiKey=' + apiKey).then(function (response) {
+	            _axios2.default.get('https://newsapi.org/v1/sources', {
+	                headers: { "X-Api-Key": apiKey }
+	            }).then(function (response) {
 	                console.log(response.data.sources);
 	                _this2.setState({ sources: response.data.sources });
 	            }).catch(function (error) {
@@ -30349,8 +30351,10 @@
 	            var _this2 = this;
 
 	            var apiKey = '374c72675fbf452297caf055174956f7';
-	            var url = 'https://newsapi.org/v1/articles?source=' + this.state.sourceId + '&sortBy=top&apiKey=' + apiKey;
-	            _axios2.default.get(url).then(function (response) {
+	            var url = 'https://newsapi.org/v1/articles?source=' + this.state.sourceId + '&sortBy=top';
+	            _axios2.default.get(url, {
+	                headers: { "X-Api-Key": apiKey }
+	            }).then(function (response) {
 	                console.log(response.data.articles);
 	                _this2.setState({ articles: response.data.articles });
 	            }).catch(function (error) {

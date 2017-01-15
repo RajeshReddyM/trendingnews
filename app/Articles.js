@@ -17,9 +17,10 @@ export class Articles extends React.Component {
 
     _fetchArticles() {
         const apiKey = '374c72675fbf452297caf055174956f7';
-        const url = `https://newsapi.org/v1/articles?source=${this.state.sourceId}&sortBy=top&apiKey=${apiKey}`;
-        Axios.get(url)
-                .then( response =>  {
+        const url = `https://newsapi.org/v1/articles?source=${this.state.sourceId}&sortBy=top`;
+        Axios.get(url, {
+                  headers: { "X-Api-Key": apiKey }
+                }).then( response =>  {
                     console.log(response.data.articles);
                     this.setState({articles: response.data.articles});
                 })

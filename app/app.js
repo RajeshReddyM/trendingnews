@@ -20,8 +20,9 @@ export class App extends React.Component {
 
     _fetchSources() {
         const apiKey = '374c72675fbf452297caf055174956f7';
-        Axios.get('https://newsapi.org/v1/sources?apiKey='+apiKey)
-                .then( response =>  {
+        Axios.get('https://newsapi.org/v1/sources', {
+                  headers: { "X-Api-Key": apiKey }
+                }).then( response =>  {
                     console.log(response.data.sources);
                     this.setState({sources: response.data.sources})
 
