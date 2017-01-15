@@ -71,7 +71,7 @@ class Article extends React.Component {
         return(
             <div className="col-md-12">
                 <hr/>
-                <h2> {article.title} </h2>
+                <h4> {article.title} </h4>
                 <div className="col-md-3">
                     <a href={`${article.url}`} target="_blank">
                       <div className="article-img" style={divStyle} alt="Article image"> </div>

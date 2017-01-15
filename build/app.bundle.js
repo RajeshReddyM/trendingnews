@@ -30417,7 +30417,7 @@
 	                { className: 'col-md-12' },
 	                _react2.default.createElement('hr', null),
 	                _react2.default.createElement(
-	                    'h2',
+	                    'h4',
 	                    null,
 	                    ' ',
 	                    article.title,
