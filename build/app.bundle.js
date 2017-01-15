@@ -30351,7 +30351,7 @@
 	            var _this2 = this;
 
 	            var apiKey = '374c72675fbf452297caf055174956f7';
-	            var url = 'https://newsapi.org/v1/articles?source=' + this.state.sourceId + '&sortBy=top';
+	            var url = 'https://newsapi.org/v1/articles?source=' + this.state.sourceId;
 	            _axios2.default.get(url, {
 	                headers: { "X-Api-Key": apiKey }
 	            }).then(function (response) {
