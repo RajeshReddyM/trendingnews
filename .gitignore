@@ -1,0 +1,49 @@
+
+# eclipse resources #
+#####################
+.classpath
+.project
+.jshintrc
+.idea/
+.metadata
+.settings/
+bin/
+
+# node modules #
+##############
+node_modules/
+
+# logs #
+########
+*.log
+
+# temp #
+########
+*~
+
+# sass cache files #
+####################
+.sass-cache/
+config.rb
+
+# swap files #
+##############
+*.swp
+
+# image files #
+# ###############
+*.jpg
+
+# pdf files #
+# ##############
+*.pdf
+
+# OS generated files #
+######################
+ehthumbs.db
+Thumbs.db
+.DS_Store
+.DS_Store?
+._*
+.Trashes
+Icon?
