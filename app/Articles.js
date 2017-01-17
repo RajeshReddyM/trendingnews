@@ -2,6 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import {Link} from 'react-router';
 import moment from 'moment';
+import _ from 'underscore';
 import FaClock from 'react-icons/lib/fa/clock-o';
 
 export class Articles extends React.Component {
@@ -53,6 +54,9 @@ export class Articles extends React.Component {
         return (
             <div className="container">
                 <div className="col-md-12">
+                    <h1 className="text-center"> {`${this.state.sourceId}'s articles`} </h1>
+                </div>
+                <div className="col-md-12">
                     {articles}
                 </div>
             </div>
@@ -75,7 +79,7 @@ class Article extends React.Component {
                 <h4> {article.title} </h4>
                 <div className="col-md-3">
                     <a href={`${article.url}`} target="_blank">
-                      <div className="article-img" style={divStyle} alt="Article image"> </div>
+                      <div className="article-img img-responsive" style={divStyle} alt="Article image"> </div>
                     </a>
                 </div>
                 <div className="col-md-9">
