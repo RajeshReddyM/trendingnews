@@ -163,7 +163,7 @@
 
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'col-md-3' },
+	                { className: 'col-md-3 col-sm-3' },
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'source' },

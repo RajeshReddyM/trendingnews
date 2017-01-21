@@ -73,7 +73,7 @@ class Source extends React.Component {
         const divStyle = {"backgroundImage": `url(${source.urlsToLogos.medium})`};
 
         return (
-            <div className="col-md-3"> 
+            <div className="col-md-3 col-sm-3">
                 <div className="source">
                     <Link to={`/${source.id}/articles`}>
                         <div className="img" style={divStyle} alt="Source image"> </div>
