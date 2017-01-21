@@ -47,8 +47,12 @@ hr {
 	cursor: pointer;
 }
 
-.publishedAt {
+.author {
     padding-left: 10px;
+}
+
+.publishedAt {
+    padding-top: 10px;
 }
 
 .footer{

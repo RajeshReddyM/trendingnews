@@ -72,7 +72,7 @@ class Article extends React.Component {
 
     render(){
         const article = this.props.propval;
-        const divStyle = {"backgroundImage": `url(${article.urlToImage})`};
+        const divStyle = {"backgroundImage": article.urlToImage? `url(${article.urlToImage})` : "url(images/noimage.png)"};
         return(
             <div className="col-md-12 col-sm-12">
                 <hr/>
@@ -83,13 +83,16 @@ class Article extends React.Component {
                     </a>
                 </div>
                 <div className="col-md-9 col-sm-9">
-                    <p className="text-justify">
-                        {article.description}
-                    </p>
-                    <kbd> Author : </kbd>
-                    <span className="publishedAt"> {article.author ? article.author : "Unknown"} </span>
-                    <br/>
-                    <span> <FaClock/>  <i> {moment(article.publishedAt).fromNow()} </i>  </span>
+                    <div>
+                        <p className="text-justify"> {article.description} </p>
+                    </div>
+                    <div>
+                        <kbd> Author : </kbd>
+                        <span className="author"> {article.author ? article.author : "Not Available"} </span>
+                    </div>
+                    <div className="publishedAt">
+                        <span> <FaClock/>  <i> {moment(article.publishedAt).fromNow()} </i> </span>
+                    </div>
                 </div>
             </div>
         );
