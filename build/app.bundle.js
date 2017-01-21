@@ -30433,7 +30433,7 @@
 	            var divStyle = { "backgroundImage": 'url(' + article.urlToImage + ')' };
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'col-md-12' },
+	                { className: 'col-md-12 col-sm-12' },
 	                _react2.default.createElement('hr', null),
 	                _react2.default.createElement(
 	                    'h4',
@@ -30444,7 +30444,7 @@
 	                ),
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'col-md-3' },
+	                    { className: 'col-md-3 col-sm-3' },
 	                    _react2.default.createElement(
 	                        'a',
 	                        { href: '' + article.url, target: '_blank' },
@@ -30457,7 +30457,7 @@
 	                ),
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'col-md-9' },
+	                    { className: 'col-md-9 col-sm-9' },
 	                    _react2.default.createElement(
 	                        'p',
 	                        { className: 'text-justify' },

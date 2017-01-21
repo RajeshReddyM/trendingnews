@@ -74,15 +74,15 @@ class Article extends React.Component {
         const article = this.props.propval;
         const divStyle = {"backgroundImage": `url(${article.urlToImage})`};
         return(
-            <div className="col-md-12">
+            <div className="col-md-12 col-sm-12">
                 <hr/>
                 <h4> {article.title} </h4>
-                <div className="col-md-3">
+                <div className="col-md-3 col-sm-3">
                     <a href={`${article.url}`} target="_blank">
                       <div className="article-img img-responsive" style={divStyle} alt="Article image"> </div>
                     </a>
                 </div>
-                <div className="col-md-9">
+                <div className="col-md-9 col-sm-9">
                     <p className="text-justify">
                         {article.description}
                     </p>
