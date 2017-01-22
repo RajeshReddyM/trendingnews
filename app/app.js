@@ -57,16 +57,16 @@ export class App extends React.Component {
         return (
             <div className="container">
                 <div className="col-md-12">
-                    <ul className="nav nav-pills navPills">
-                      <li><a href="#" className={this.state.activeFilter === 'all' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "all")}>All</a></li>
-                      <li><a href="#" className={this.state.activeFilter === 'general' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt,"general")}>General</a></li>
-                      <li><a href="#" className={this.state.activeFilter === 'business' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "business")}>Business</a></li>
-                      <li><a href="#" className={this.state.activeFilter === 'entertainment' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "entertainment")}>Entertainment</a></li>
-                      <li><a href="#" className={this.state.activeFilter === 'gaming' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "gaming")}>Gaming</a></li>
-                      <li><a href="#" className={this.state.activeFilter === 'sport' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "sport")}>Sports</a></li>
-                      <li><a href="#" className={this.state.activeFilter === 'music' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "music")}>Music</a></li>
-                      <li><a href="#" className={this.state.activeFilter === 'technology' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "technology")}>Technology</a></li>
-                      <li><a href="#" className={this.state.activeFilter === 'science-and-nature' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "science-and-nature")}>Nature</a></li>
+                    <ul className="nav nav-pills well navPills">
+                      <li><a href="#" className={this.state.activeFilter === 'all' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "all")}><b>All</b></a></li>
+                      <li><a href="#" className={this.state.activeFilter === 'general' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt,"general")}><b>General</b></a></li>
+                      <li><a href="#" className={this.state.activeFilter === 'business' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "business")}><b>Business</b></a></li>
+                      <li><a href="#" className={this.state.activeFilter === 'entertainment' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "entertainment")}><b>Entertainment</b></a></li>
+                      <li><a href="#" className={this.state.activeFilter === 'gaming' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "gaming")}><b>Gaming</b></a></li>
+                      <li><a href="#" className={this.state.activeFilter === 'sport' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "sport")}><b>Sports</b></a></li>
+                      <li><a href="#" className={this.state.activeFilter === 'music' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "music")}><b>Music</b></a></li>
+                      <li><a href="#" className={this.state.activeFilter === 'technology' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "technology")}><b>Technology</b></a></li>
+                      <li><a href="#" className={this.state.activeFilter === 'science-and-nature' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "science-and-nature")}><b>Nature</b></a></li>
                     </ul>
                 </div>
                 <br/>

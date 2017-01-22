@@ -148,7 +148,7 @@
 	                    { className: 'col-md-12' },
 	                    _react2.default.createElement(
 	                        'ul',
-	                        { className: 'nav nav-pills navPills' },
+	                        { className: 'nav nav-pills well navPills' },
 	                        _react2.default.createElement(
 	                            'li',
 	                            null,
@@ -157,7 +157,11 @@
 	                                { href: '#', className: this.state.activeFilter === 'all' ? 'activePill' : '', onClick: function onClick(evt) {
 	                                        return _this3._filterSources(evt, "all");
 	                                    } },
-	                                'All'
+	                                _react2.default.createElement(
+	                                    'b',
+	                                    null,
+	                                    'All'
+	                                )
 	                            )
 	                        ),
 	                        _react2.default.createElement(
@@ -168,7 +172,11 @@
 	                                { href: '#', className: this.state.activeFilter === 'general' ? 'activePill' : '', onClick: function onClick(evt) {
 	                                        return _this3._filterSources(evt, "general");
 	                                    } },
-	                                'General'
+	                                _react2.default.createElement(
+	                                    'b',
+	                                    null,
+	                                    'General'
+	                                )
 	                            )
 	                        ),
 	                        _react2.default.createElement(
@@ -179,7 +187,11 @@
 	                                { href: '#', className: this.state.activeFilter === 'business' ? 'activePill' : '', onClick: function onClick(evt) {
 	                                        return _this3._filterSources(evt, "business");
 	                                    } },
-	                                'Business'
+	                                _react2.default.createElement(
+	                                    'b',
+	                                    null,
+	                                    'Business'
+	                                )
 	                            )
 	                        ),
 	                        _react2.default.createElement(
@@ -190,7 +202,11 @@
 	                                { href: '#', className: this.state.activeFilter === 'entertainment' ? 'activePill' : '', onClick: function onClick(evt) {
 	                                        return _this3._filterSources(evt, "entertainment");
 	                                    } },
-	                                'Entertainment'
+	                                _react2.default.createElement(
+	                                    'b',
+	                                    null,
+	                                    'Entertainment'
+	                                )
 	                            )
 	                        ),
 	                        _react2.default.createElement(
@@ -201,7 +217,11 @@
 	                                { href: '#', className: this.state.activeFilter === 'gaming' ? 'activePill' : '', onClick: function onClick(evt) {
 	                                        return _this3._filterSources(evt, "gaming");
 	                                    } },
-	                                'Gaming'
+	                                _react2.default.createElement(
+	                                    'b',
+	                                    null,
+	                                    'Gaming'
+	                                )
 	                            )
 	                        ),
 	                        _react2.default.createElement(
@@ -212,7 +232,11 @@
 	                                { href: '#', className: this.state.activeFilter === 'sport' ? 'activePill' : '', onClick: function onClick(evt) {
 	                                        return _this3._filterSources(evt, "sport");
 	                                    } },
-	                                'Sports'
+	                                _react2.default.createElement(
+	                                    'b',
+	                                    null,
+	                                    'Sports'
+	                                )
 	                            )
 	                        ),
 	                        _react2.default.createElement(
@@ -223,7 +247,11 @@
 	                                { href: '#', className: this.state.activeFilter === 'music' ? 'activePill' : '', onClick: function onClick(evt) {
 	                                        return _this3._filterSources(evt, "music");
 	                                    } },
-	                                'Music'
+	                                _react2.default.createElement(
+	                                    'b',
+	                                    null,
+	                                    'Music'
+	                                )
 	                            )
 	                        ),
 	                        _react2.default.createElement(
@@ -234,7 +262,11 @@
 	                                { href: '#', className: this.state.activeFilter === 'technology' ? 'activePill' : '', onClick: function onClick(evt) {
 	                                        return _this3._filterSources(evt, "technology");
 	                                    } },
-	                                'Technology'
+	                                _react2.default.createElement(
+	                                    'b',
+	                                    null,
+	                                    'Technology'
+	                                )
 	                            )
 	                        ),
 	                        _react2.default.createElement(
@@ -245,7 +277,11 @@
 	                                { href: '#', className: this.state.activeFilter === 'science-and-nature' ? 'activePill' : '', onClick: function onClick(evt) {
 	                                        return _this3._filterSources(evt, "science-and-nature");
 	                                    } },
-	                                'Nature'
+	                                _react2.default.createElement(
+	                                    'b',
+	                                    null,
+	                                    'Nature'
+	                                )
 	                            )
 	                        )
 	                    )
