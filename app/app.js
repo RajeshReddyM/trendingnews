@@ -61,7 +61,7 @@ export class App extends React.Component {
                       <li><a href="#" className={this.state.activeFilter === 'all' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "all")}>All</a></li>
                       <li><a href="#" className={this.state.activeFilter === 'general' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt,"general")}>General</a></li>
                       <li><a href="#" className={this.state.activeFilter === 'business' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "business")}>Business</a></li>
-                      <li><a href="#" className={this.state.activeFilter === 'entertainment' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "entertainment")}>Entertanment</a></li>
+                      <li><a href="#" className={this.state.activeFilter === 'entertainment' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "entertainment")}>Entertainment</a></li>
                       <li><a href="#" className={this.state.activeFilter === 'gaming' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "gaming")}>Gaming</a></li>
                       <li><a href="#" className={this.state.activeFilter === 'sport' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "sport")}>Sports</a></li>
                       <li><a href="#" className={this.state.activeFilter === 'music' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "music")}>Music</a></li>

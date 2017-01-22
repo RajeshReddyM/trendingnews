@@ -190,7 +190,7 @@
 	                                { href: '#', className: this.state.activeFilter === 'entertainment' ? 'activePill' : '', onClick: function onClick(evt) {
 	                                        return _this3._filterSources(evt, "entertainment");
 	                                    } },
-	                                'Entertanment'
+	                                'Entertainment'
 	                            )
 	                        ),
 	                        _react2.default.createElement(
