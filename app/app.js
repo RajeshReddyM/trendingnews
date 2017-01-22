@@ -2,16 +2,18 @@ import React from 'react';
 import { render } from 'react-dom';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Axios from 'axios';
+import _ from 'underscore';
 import { Router, Route, Link, hashHistory } from 'react-router';
 import { Whoops404 } from './Whoops404';
 import { Articles } from './Articles';
+
 
 
 export class App extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {sources : []};
+        this.state = {sources : [], filter: '', activeFilter: 'all'};
     }
 
     componentWillMount() {
@@ -24,12 +26,16 @@ export class App extends React.Component {
                   headers: { "X-Api-Key": apiKey }
                 }).then( response =>  {
                     console.log(response.data.sources);
-                    this.setState({sources: response.data.sources})
+                    this.setState({sources: response.data.sources});
 
                 })
                 .catch(function (error) {
                     console.log(error);
                 }); 
+    }
+
+    _filterSources(evt, source) {
+        this.setState({filter: source, activeFilter: source});
     }
 
     componentDidMount() {
@@ -38,12 +44,32 @@ export class App extends React.Component {
 
     render() {
 
-        const sources = this.state.sources.map(function(result,index){
-            return <Source key={index} propval={ result } />
-        });;
+        const sources = this.state.sources.map((result,index) => {
+            if (this.state.filter && this.state.filter !== "all") {
+                if (this.state.filter === result.category) {
+                    return <Source key={index} propval={ result } />   
+                }
+            } else {
+                return <Source key={index} propval={ result } />
+            }
+        });
 
         return (
             <div className="container">
+                <div className="col-md-12">
+                    <ul className="nav nav-pills navPills">
+                      <li><a href="#" className={this.state.activeFilter === 'all' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "all")}>All</a></li>
+                      <li><a href="#" className={this.state.activeFilter === 'general' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt,"general")}>General</a></li>
+                      <li><a href="#" className={this.state.activeFilter === 'business' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "business")}>Business</a></li>
+                      <li><a href="#" className={this.state.activeFilter === 'entertainment' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "entertainment")}>Entertanment</a></li>
+                      <li><a href="#" className={this.state.activeFilter === 'gaming' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "gaming")}>Gaming</a></li>
+                      <li><a href="#" className={this.state.activeFilter === 'sport' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "sport")}>Sports</a></li>
+                      <li><a href="#" className={this.state.activeFilter === 'music' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "music")}>Music</a></li>
+                      <li><a href="#" className={this.state.activeFilter === 'technology' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "technology")}>Technology</a></li>
+                      <li><a href="#" className={this.state.activeFilter === 'science-and-nature' ? 'activePill' : ''} onClick={(evt) => this._filterSources(evt, "science-and-nature")}>Nature</a></li>
+                    </ul>
+                </div>
+                <br/>
                 <div className="col-md-12">
                     {sources}
                 </div>

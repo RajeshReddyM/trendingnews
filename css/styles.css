@@ -68,3 +68,19 @@ hr {
 .powered{
     margin-top: 20px;
 }
+
+.navPills {
+    padding-left: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+.navPills li a {
+    min-width: 100px;
+    text-align: center;
+    padding-right: 10px;
+}
+
+.activePill {
+    color: #fff !important;
+    background-color: #337ab7 !important;
+}
