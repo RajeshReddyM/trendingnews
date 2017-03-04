@@ -74,24 +74,27 @@ class Article extends React.Component {
         const article = this.props.propval;
         const divStyle = {"backgroundImage": article.urlToImage? `url(${article.urlToImage})` : "url(images/noimage.png)"};
         return(
-            <div className="col-md-12 col-sm-12">
-                <hr/>
-                <h4> {article.title} </h4>
-                <div className="col-md-3 col-sm-3">
-                    <a href={`${article.url}`} target="_blank">
-                      <div className="article-img img-responsive" style={divStyle} alt="Article image"> </div>
-                    </a>
+            <div className="panel panel-default">
+                <div className="panel-heading">
+                    <h4 className="panel-title"> {article.title} </h4>
                 </div>
-                <div className="col-md-9 col-sm-9">
-                    <div>
-                        <p className="text-justify"> {article.description} </p>
+                <div className="panel-body">
+                    <div className="col-md-3 col-sm-3">
+                        <a href={`${article.url}`} target="_blank">
+                          <div className="article-img img-responsive" style={divStyle} alt="Article image"> </div>
+                        </a>
                     </div>
-                    <div>
-                        <kbd> Author : </kbd>
-                        <span className="author"> {article.author ? article.author : "Not Available"} </span>
-                    </div>
-                    <div className="publishedAt">
-                        <span> <FaClock/>  <i> {moment(article.publishedAt).fromNow()} </i> </span>
+                    <div className="col-md-9 col-sm-9">
+                        <div>
+                            <p className="text-justify"> {article.description} </p>
+                        </div>
+                        <div>
+                            <kbd> Author : </kbd>
+                            <span className="author"> {article.author ? article.author : "Not Available"} </span>
+                        </div>
+                        <div className="publishedAt">
+                            <span> <FaClock/>  <i> {moment(article.publishedAt).fromNow()} </i> </span>
+                        </div>
                     </div>
                 </div>
             </div>

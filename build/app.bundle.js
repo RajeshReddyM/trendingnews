@@ -32147,75 +32147,82 @@
 	            var divStyle = { "backgroundImage": article.urlToImage ? 'url(' + article.urlToImage + ')' : "url(images/noimage.png)" };
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'col-md-12 col-sm-12' },
-	                _react2.default.createElement('hr', null),
-	                _react2.default.createElement(
-	                    'h4',
-	                    null,
-	                    ' ',
-	                    article.title,
-	                    ' '
-	                ),
+	                { className: 'panel panel-default' },
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'col-md-3 col-sm-3' },
+	                    { className: 'panel-heading' },
 	                    _react2.default.createElement(
-	                        'a',
-	                        { href: '' + article.url, target: '_blank' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'article-img img-responsive', style: divStyle, alt: 'Article image' },
-	                            ' '
-	                        )
+	                        'h4',
+	                        { className: 'panel-title' },
+	                        ' ',
+	                        article.title,
+	                        ' '
 	                    )
 	                ),
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'col-md-9 col-sm-9' },
+	                    { className: 'panel-body' },
 	                    _react2.default.createElement(
 	                        'div',
-	                        null,
+	                        { className: 'col-md-3 col-sm-3' },
 	                        _react2.default.createElement(
-	                            'p',
-	                            { className: 'text-justify' },
-	                            ' ',
-	                            article.description,
-	                            ' '
+	                            'a',
+	                            { href: '' + article.url, target: '_blank' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'article-img img-responsive', style: divStyle, alt: 'Article image' },
+	                                ' '
+	                            )
 	                        )
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
-	                        null,
+	                        { className: 'col-md-9 col-sm-9' },
 	                        _react2.default.createElement(
-	                            'kbd',
+	                            'div',
 	                            null,
-	                            ' Author : '
+	                            _react2.default.createElement(
+	                                'p',
+	                                { className: 'text-justify' },
+	                                ' ',
+	                                article.description,
+	                                ' '
+	                            )
 	                        ),
 	                        _react2.default.createElement(
-	                            'span',
-	                            { className: 'author' },
-	                            ' ',
-	                            article.author ? article.author : "Not Available",
-	                            ' '
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'publishedAt' },
-	                        _react2.default.createElement(
-	                            'span',
+	                            'div',
 	                            null,
-	                            ' ',
-	                            _react2.default.createElement(_clockO2.default, null),
-	                            '  ',
 	                            _react2.default.createElement(
-	                                'i',
+	                                'kbd',
+	                                null,
+	                                ' Author : '
+	                            ),
+	                            _react2.default.createElement(
+	                                'span',
+	                                { className: 'author' },
+	                                ' ',
+	                                article.author ? article.author : "Not Available",
+	                                ' '
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'publishedAt' },
+	                            _react2.default.createElement(
+	                                'span',
 	                                null,
 	                                ' ',
-	                                (0, _moment2.default)(article.publishedAt).fromNow(),
+	                                _react2.default.createElement(_clockO2.default, null),
+	                                '  ',
+	                                _react2.default.createElement(
+	                                    'i',
+	                                    null,
+	                                    ' ',
+	                                    (0, _moment2.default)(article.publishedAt).fromNow(),
+	                                    ' '
+	                                ),
 	                                ' '
-	                            ),
-	                            ' '
+	                            )
 	                        )
 	                    )
 	                )
