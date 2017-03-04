@@ -74,7 +74,7 @@ class Article extends React.Component {
         const article = this.props.propval;
         const divStyle = {"backgroundImage": article.urlToImage? `url(${article.urlToImage})` : "url(images/noimage.png)"};
         return(
-            <div className="panel panel-default">
+            <div className="panel panel-default z-depth">
                 <div className="panel-heading">
                     <h4 className="panel-title"> {article.title} </h4>
                 </div>

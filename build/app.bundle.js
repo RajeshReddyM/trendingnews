@@ -32147,7 +32147,7 @@
 	            var divStyle = { "backgroundImage": article.urlToImage ? 'url(' + article.urlToImage + ')' : "url(images/noimage.png)" };
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'panel panel-default' },
+	                { className: 'panel panel-default z-depth' },
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'panel-heading' },
