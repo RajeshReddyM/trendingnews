@@ -32110,12 +32110,12 @@
 	                { className: 'container' },
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'col-md-12' },
+	                    { className: 'col-md-12 page-header' },
 	                    _react2.default.createElement(
-	                        'h1',
-	                        { className: 'text-center' },
+	                        'h2',
+	                        { className: 'text-center capitalize' },
 	                        ' ',
-	                        this.state.sourceId + '\'s articles',
+	                        this.state.sourceId.split('-').join(' ') + '\'s articles',
 	                        ' '
 	                    )
 	                ),

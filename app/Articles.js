@@ -53,8 +53,8 @@ export class Articles extends React.Component {
 
         return (
             <div className="container">
-                <div className="col-md-12">
-                    <h1 className="text-center"> {`${this.state.sourceId}'s articles`} </h1>
+                <div className="col-md-12 page-header">
+                    <h2 className="text-center capitalize"> {`${this.state.sourceId.split('-').join(' ')}'s articles`} </h2>
                 </div>
                 <div className="col-md-12">
                     {articles}
