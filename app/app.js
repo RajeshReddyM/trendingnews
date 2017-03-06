@@ -100,10 +100,12 @@ class Source extends React.Component {
 
         return (
             <div className="col-md-3">
-                <div className="source">
+                <div className="source hovereffect">
                     <Link to={`/${source.id}/articles`}>
                         <div className="img" style={divStyle} alt="Source image"> </div>
-                        <kbd> {source.id} </kbd>
+                        <div className="overlay">
+                            <h2>{source.id}</h2>
+                        </div>
                     </Link>
                 </div>
             </div>

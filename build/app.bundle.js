@@ -326,7 +326,7 @@
 	                { className: 'col-md-3' },
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'source' },
+	                    { className: 'source hovereffect' },
 	                    _react2.default.createElement(
 	                        _reactRouter.Link,
 	                        { to: '/' + source.id + '/articles' },
@@ -336,11 +336,13 @@
 	                            ' '
 	                        ),
 	                        _react2.default.createElement(
-	                            'kbd',
-	                            null,
-	                            ' ',
-	                            source.id,
-	                            ' '
+	                            'div',
+	                            { className: 'overlay' },
+	                            _react2.default.createElement(
+	                                'h2',
+	                                null,
+	                                source.id
+	                            )
 	                        )
 	                    )
 	                )
