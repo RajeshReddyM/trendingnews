@@ -289,7 +289,7 @@
 	                _react2.default.createElement('br', null),
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'col-md-12' },
+	                    { className: 'col-md-12 col-sm-12 col-xs-12' },
 	                    sources
 	                )
 	            );
@@ -323,7 +323,7 @@
 
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'col-md-2' },
+	                { className: 'col-md-2 col-sm-3 col-xs-6' },
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'source hovereffect' },

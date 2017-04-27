@@ -70,7 +70,7 @@ export class App extends React.Component {
                     </ul>
                 </div>
                 <br/>
-                <div className="col-md-12">
+                <div className="col-md-12 col-sm-12 col-xs-12">
                     {sources}
                 </div>
             </div>
@@ -99,7 +99,7 @@ class Source extends React.Component {
         const divStyle = {"backgroundImage": `url("https://icons.better-idea.org/icon?url=${source.url}&size=70..120..200")`};
 
         return (
-            <div className="col-md-2">
+            <div className="col-md-2 col-sm-3 col-xs-6">
                 <div className="source hovereffect">
                     <Link to={`/${source.id}/articles`}>
                         <div className="img" style={divStyle} alt="Source image"> </div>
