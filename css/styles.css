@@ -18,8 +18,6 @@ body {
     background-size: contain;
     height: 150px;
     width: 100%;
-    border: 1px solid #babfc7;
-    box-sizing: border-box;
     cursor: pointer;
 }
 

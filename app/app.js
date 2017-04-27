@@ -96,10 +96,10 @@ class Source extends React.Component {
     render() {
 
         const source = this.props.propval;
-        const divStyle = {"backgroundImage": `url(${source.urlsToLogos.medium})`};
+        const divStyle = {"backgroundImage": `url("https://icons.better-idea.org/icon?url=${source.url}&size=70..120..200")`};
 
         return (
-            <div className="col-md-3">
+            <div className="col-md-2">
                 <div className="source hovereffect">
                     <Link to={`/${source.id}/articles`}>
                         <div className="img" style={divStyle} alt="Source image"> </div>
