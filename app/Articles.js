@@ -5,8 +5,10 @@ import moment from 'moment';
 import _ from 'underscore';
 import FaClock from 'react-icons/lib/fa/clock-o';
 
+// class component of Articles
 export class Articles extends React.Component {
 
+    // Define state object
     constructor(props) {
         super(props);
         this.state = {sourceId: props.routeParams.sourceId, articles: []};
@@ -16,6 +18,7 @@ export class Articles extends React.Component {
         this._fetchArticles();
     }
 
+    // Fetch all the articles of specific news source
     _fetchArticles() {
         const apiKey = '374c72675fbf452297caf055174956f7';
         const url = `https://newsapi.org/v1/articles?source=${this.state.sourceId}&apiKey=${apiKey}`;
@@ -33,10 +36,12 @@ export class Articles extends React.Component {
         this._startPolling();
     }
 
+    // fetch new articles from the news source every 30 seconds
     _startPolling() {
-        this._timer = setInterval(this._fetchArticles.bind(this), 5000);
+        this._timer = setInterval(this._fetchArticles.bind(this), 30000);
     }
 
+    // clear the polling once the component is about to unmount
     componentWillUnmount() {
         if (this._timer) {
             clearInterval(this._timer);
@@ -45,9 +50,8 @@ export class Articles extends React.Component {
     }
 
     render() {
-
         const articles = this.state.articles.map(function(result,index){
-            return <Article key={index} propval={ result } />
+            return <Article key={index} articleVal={ result } />
         });
 
         return (
@@ -63,36 +67,34 @@ export class Articles extends React.Component {
     }
 }
 
-class Article extends React.Component {
-
-    render(){
-        const article = this.props.propval;
-        const divStyle = {"backgroundImage": article.urlToImage? `url(${article.urlToImage})` : "url(images/noimage.png)"};
-        return(
-            <div className="panel panel-default z-depth">
-                <div className="panel-heading">
-                    <h4 className="panel-title"> {article.title} </h4>
+// Article function component
+const Article =  (props) => {
+    let article = props.articleVal;
+    let divStyle = {"backgroundImage": article.urlToImage? `url(${article.urlToImage})` : "url(images/noimage.png)"};
+    return(
+        <div className="panel panel-default z-depth">
+            <div className="panel-heading">
+                <h4 className="panel-title"> {article.title} </h4>
+            </div>
+            <div className="panel-body">
+                <div className="col-md-3 col-sm-3">
+                    <a href={`${article.url}`} target="_blank">
+                      <div className="article-img img-responsive" style={divStyle} alt="Article image"> </div>
+                    </a>
                 </div>
-                <div className="panel-body">
-                    <div className="col-md-3 col-sm-3">
-                        <a href={`${article.url}`} target="_blank">
-                          <div className="article-img img-responsive" style={divStyle} alt="Article image"> </div>
-                        </a>
+                <div className="col-md-9 col-sm-9">
+                    <div>
+                        <p className="text-justify"> {article.description} </p>
                     </div>
-                    <div className="col-md-9 col-sm-9">
-                        <div>
-                            <p className="text-justify"> {article.description} </p>
-                        </div>
-                        <div>
-                            <kbd> Author : </kbd>
-                            <span className="author"> {article.author ? article.author : "Not Available"} </span>
-                        </div>
-                        <div className="publishedAt">
-                            <span> <FaClock/>  <i> {moment(article.publishedAt).fromNow()} </i> </span>
-                        </div>
+                    <div>
+                        <kbd> Author : </kbd>
+                        <span className="author"> {article.author ? article.author : "Not Available"} </span>
+                    </div>
+                    <div className="publishedAt">
+                        <span> <FaClock/>  <i> {moment(article.publishedAt).fromNow()} </i> </span>
                     </div>
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }

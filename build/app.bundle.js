@@ -85,9 +85,11 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	// Main class component for the app
 	var App = exports.App = function (_React$Component) {
 	    _inherits(App, _React$Component);
 
+	    // Define app state
 	    function App(props) {
 	        _classCallCheck(this, App);
 
@@ -96,6 +98,9 @@
 	        _this.state = { sources: [], filter: '', activeFilter: 'all' };
 	        return _this;
 	    }
+
+	    // Get all the News Sources from News API
+
 
 	    _createClass(App, [{
 	        key: 'componentWillMount',
@@ -117,6 +122,9 @@
 	                console.log(error);
 	            });
 	        }
+
+	        // set the filter state and render the page with news sources
+
 	    }, {
 	        key: '_filterSources',
 	        value: function _filterSources(evt, source) {
@@ -132,14 +140,16 @@
 
 	            var sources = this.state.sources.map(function (result, index) {
 	                if (_this3.state.filter && _this3.state.filter !== "all") {
+	                    // set the filter state to All and display all sources by default
 	                    if (_this3.state.filter === result.category) {
-	                        return _react2.default.createElement(Source, { key: index, propval: result });
+	                        return _react2.default.createElement(Source, { key: index, sourceVal: result });
 	                    }
 	                } else {
-	                    return _react2.default.createElement(Source, { key: index, propval: result });
+	                    return _react2.default.createElement(Source, { key: index, sourceVal: result });
 	                }
 	            });
 
+	            // Nav pills with the filters for news sources
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'container' },
@@ -299,53 +309,40 @@
 	    return App;
 	}(_react2.default.Component);
 
-	var Source = function (_React$Component2) {
-	    _inherits(Source, _React$Component2);
+	// News Source function component
 
-	    function Source() {
-	        _classCallCheck(this, Source);
 
-	        return _possibleConstructorReturn(this, (Source.__proto__ || Object.getPrototypeOf(Source)).apply(this, arguments));
-	    }
+	var Source = function Source(props) {
+	    var source = props.sourceVal;
+	    var divStyle = { "backgroundImage": 'url("https://icons.better-idea.org/icon?url=' + source.url + '&size=70..120..200")' };
 
-	    _createClass(Source, [{
-	        key: 'render',
-	        value: function render() {
-
-	            var source = this.props.propval;
-	            var divStyle = { "backgroundImage": 'url("https://icons.better-idea.org/icon?url=' + source.url + '&size=70..120..200")' };
-
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'col-md-2 col-sm-3 col-xs-6' },
+	    return _react2.default.createElement(
+	        'div',
+	        { className: 'col-md-2 col-sm-3 col-xs-6' },
+	        _react2.default.createElement(
+	            'div',
+	            { className: 'source hovereffect' },
+	            _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: '/' + source.id + '/articles' },
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'source hovereffect' },
+	                    { className: 'img', style: divStyle, alt: 'Source image' },
+	                    ' '
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'overlay' },
 	                    _react2.default.createElement(
-	                        _reactRouter.Link,
-	                        { to: '/' + source.id + '/articles' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'img', style: divStyle, alt: 'Source image' },
-	                            ' '
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'overlay' },
-	                            _react2.default.createElement(
-	                                'h2',
-	                                null,
-	                                source.id
-	                            )
-	                        )
+	                        'h2',
+	                        null,
+	                        source.id
 	                    )
 	                )
-	            );
-	        }
-	    }]);
-
-	    return Source;
-	}(_react2.default.Component);
+	            )
+	        )
+	    );
+	};
 
 	(0, _reactDom.render)(_react2.default.createElement(
 	    _reactRouter.Router,
@@ -32042,9 +32039,11 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	// class component of Articles
 	var Articles = exports.Articles = function (_React$Component) {
 	    _inherits(Articles, _React$Component);
 
+	    // Define state object
 	    function Articles(props) {
 	        _classCallCheck(this, Articles);
 
@@ -32059,6 +32058,9 @@
 	        value: function componentWillMount() {
 	            this._fetchArticles();
 	        }
+
+	        // Fetch all the articles of specific news source
+
 	    }, {
 	        key: '_fetchArticles',
 	        value: function _fetchArticles() {
@@ -32078,11 +32080,17 @@
 	        value: function componentDidMount() {
 	            this._startPolling();
 	        }
+
+	        // fetch new articles from the news source every 30 seconds
+
 	    }, {
 	        key: '_startPolling',
 	        value: function _startPolling() {
-	            this._timer = setInterval(this._fetchArticles.bind(this), 5000);
+	            this._timer = setInterval(this._fetchArticles.bind(this), 30000);
 	        }
+
+	        // clear the polling once the component is about to unmount
+
 	    }, {
 	        key: 'componentWillUnmount',
 	        value: function componentWillUnmount() {
@@ -32094,9 +32102,8 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-
 	            var articles = this.state.articles.map(function (result, index) {
-	                return _react2.default.createElement(Article, { key: index, propval: result });
+	                return _react2.default.createElement(Article, { key: index, articleVal: result });
 	            });
 
 	            return _react2.default.createElement(
@@ -32125,107 +32132,95 @@
 	    return Articles;
 	}(_react2.default.Component);
 
-	var Article = function (_React$Component2) {
-	    _inherits(Article, _React$Component2);
+	// Article function component
 
-	    function Article() {
-	        _classCallCheck(this, Article);
 
-	        return _possibleConstructorReturn(this, (Article.__proto__ || Object.getPrototypeOf(Article)).apply(this, arguments));
-	    }
-
-	    _createClass(Article, [{
-	        key: 'render',
-	        value: function render() {
-	            var article = this.props.propval;
-	            var divStyle = { "backgroundImage": article.urlToImage ? 'url(' + article.urlToImage + ')' : "url(images/noimage.png)" };
-	            return _react2.default.createElement(
+	var Article = function Article(props) {
+	    var article = props.articleVal;
+	    var divStyle = { "backgroundImage": article.urlToImage ? 'url(' + article.urlToImage + ')' : "url(images/noimage.png)" };
+	    return _react2.default.createElement(
+	        'div',
+	        { className: 'panel panel-default z-depth' },
+	        _react2.default.createElement(
+	            'div',
+	            { className: 'panel-heading' },
+	            _react2.default.createElement(
+	                'h4',
+	                { className: 'panel-title' },
+	                ' ',
+	                article.title,
+	                ' '
+	            )
+	        ),
+	        _react2.default.createElement(
+	            'div',
+	            { className: 'panel-body' },
+	            _react2.default.createElement(
 	                'div',
-	                { className: 'panel panel-default z-depth' },
+	                { className: 'col-md-3 col-sm-3' },
+	                _react2.default.createElement(
+	                    'a',
+	                    { href: '' + article.url, target: '_blank' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'article-img img-responsive', style: divStyle, alt: 'Article image' },
+	                        ' '
+	                    )
+	                )
+	            ),
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'col-md-9 col-sm-9' },
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'panel-heading' },
+	                    null,
 	                    _react2.default.createElement(
-	                        'h4',
-	                        { className: 'panel-title' },
+	                        'p',
+	                        { className: 'text-justify' },
 	                        ' ',
-	                        article.title,
+	                        article.description,
 	                        ' '
 	                    )
 	                ),
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'panel-body' },
+	                    null,
 	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-md-3 col-sm-3' },
-	                        _react2.default.createElement(
-	                            'a',
-	                            { href: '' + article.url, target: '_blank' },
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'article-img img-responsive', style: divStyle, alt: 'Article image' },
-	                                ' '
-	                            )
-	                        )
+	                        'kbd',
+	                        null,
+	                        ' Author : '
 	                    ),
 	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-md-9 col-sm-9' },
+	                        'span',
+	                        { className: 'author' },
+	                        ' ',
+	                        article.author ? article.author : "Not Available",
+	                        ' '
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'publishedAt' },
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        ' ',
+	                        _react2.default.createElement(_clockO2.default, null),
+	                        '  ',
 	                        _react2.default.createElement(
-	                            'div',
+	                            'i',
 	                            null,
-	                            _react2.default.createElement(
-	                                'p',
-	                                { className: 'text-justify' },
-	                                ' ',
-	                                article.description,
-	                                ' '
-	                            )
+	                            ' ',
+	                            (0, _moment2.default)(article.publishedAt).fromNow(),
+	                            ' '
 	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            null,
-	                            _react2.default.createElement(
-	                                'kbd',
-	                                null,
-	                                ' Author : '
-	                            ),
-	                            _react2.default.createElement(
-	                                'span',
-	                                { className: 'author' },
-	                                ' ',
-	                                article.author ? article.author : "Not Available",
-	                                ' '
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'publishedAt' },
-	                            _react2.default.createElement(
-	                                'span',
-	                                null,
-	                                ' ',
-	                                _react2.default.createElement(_clockO2.default, null),
-	                                '  ',
-	                                _react2.default.createElement(
-	                                    'i',
-	                                    null,
-	                                    ' ',
-	                                    (0, _moment2.default)(article.publishedAt).fromNow(),
-	                                    ' '
-	                                ),
-	                                ' '
-	                            )
-	                        )
+	                        ' '
 	                    )
 	                )
-	            );
-	        }
-	    }]);
-
-	    return Article;
-	}(_react2.default.Component);
+	            )
+	        )
+	    );
+	};
 
 /***/ },
 /* 274 */

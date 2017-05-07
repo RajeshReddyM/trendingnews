@@ -8,14 +8,16 @@ import { Whoops404 } from './Whoops404';
 import { Articles } from './Articles';
 
 
-
+// Main class component for the app
 export class App extends React.Component {
 
+    // Define app state
     constructor(props) {
         super(props);
         this.state = {sources : [], filter: '', activeFilter: 'all'};
     }
 
+    // Get all the News Sources from News API
     componentWillMount() {
         this._fetchSources();
     }
@@ -34,6 +36,7 @@ export class App extends React.Component {
                 }); 
     }
 
+    // set the filter state and render the page with news sources
     _filterSources(evt, source) {
         this.setState({filter: source, activeFilter: source});
     }
@@ -46,14 +49,16 @@ export class App extends React.Component {
 
         const sources = this.state.sources.map((result,index) => {
             if (this.state.filter && this.state.filter !== "all") {
+                // set the filter state to All and display all sources by default
                 if (this.state.filter === result.category) {
-                    return <Source key={index} propval={ result } />   
+                    return <Source key={index} sourceVal={ result } />
                 }
             } else {
-                return <Source key={index} propval={ result } />
+                return <Source key={index} sourceVal={ result } />
             }
         });
 
+        // Nav pills with the filters for news sources
         return (
             <div className="container">
                 <div className="col-md-12">
@@ -79,27 +84,23 @@ export class App extends React.Component {
 
 }
 
-class Source extends React.Component {
+// News Source function component
+const Source = (props) => {
+    let source = props.sourceVal;
+    let divStyle = {"backgroundImage": `url("https://icons.better-idea.org/icon?url=${source.url}&size=70..120..200")`};
 
-
-    render() {
-
-        const source = this.props.propval;
-        const divStyle = {"backgroundImage": `url("https://icons.better-idea.org/icon?url=${source.url}&size=70..120..200")`};
-
-        return (
-            <div className="col-md-2 col-sm-3 col-xs-6">
-                <div className="source hovereffect">
-                    <Link to={`/${source.id}/articles`}>
-                        <div className="img" style={divStyle} alt="Source image"> </div>
-                        <div className="overlay">
-                            <h2>{source.id}</h2>
-                        </div>
-                    </Link>
-                </div>
+    return (
+        <div className="col-md-2 col-sm-3 col-xs-6">
+            <div className="source hovereffect">
+                <Link to={`/${source.id}/articles`}>
+                    <div className="img" style={divStyle} alt="Source image"> </div>
+                    <div className="overlay">
+                        <h2>{source.id}</h2>
+                    </div>
+                </Link>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 render(
@@ -107,7 +108,6 @@ render(
         <Route path="/" component={App}/>
         <Route path="/:sourceId/articles" component={Articles}/>
         <Route path="*" component={Whoops404}/>
-
     </Router>, 
     document.getElementById('app')
 );
