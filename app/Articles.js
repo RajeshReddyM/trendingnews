@@ -8,7 +8,7 @@ import FaClock from 'react-icons/lib/fa/clock-o';
 export class Articles extends React.Component {
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {sourceId: props.routeParams.sourceId, articles: []};
     }
 
@@ -64,10 +64,6 @@ export class Articles extends React.Component {
 }
 
 class Article extends React.Component {
-
-    constructor(props) {
-        super(props)
-    }
 
     render(){
         const article = this.props.propval;

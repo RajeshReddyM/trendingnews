@@ -81,17 +81,6 @@ export class App extends React.Component {
 
 class Source extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
-    componentWillMount() {
-
-    }
-
-    componentDidMount() {
-        
-    }
 
     render() {
 
