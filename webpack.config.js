@@ -5,7 +5,7 @@ module.exports = {
   entry: './app/app.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'app.bundle.js'
+    filename: 'bundle.min.js'
   },
   module: {
     loaders: [
@@ -19,4 +19,11 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    })
+  ],
 };
