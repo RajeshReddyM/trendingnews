@@ -95,7 +95,7 @@ const Source = (props) => {
                 <Link to={`/${source.id}/articles`}>
                     <div className="img" style={divStyle} alt="Source image"> </div>
                     <div className="overlay">
-                        <h2>{source.id}</h2>
+                        <h2>{source.name}</h2>
                     </div>
                 </Link>
             </div>
