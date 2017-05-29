@@ -9,15 +9,27 @@ module.exports = {
     publicPath: '/build'
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /.jsx?$/,
+        test: /.js?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
           presets: ['es2015', 'react']
         }
+      },
+      {
+        test: /.css?$/,
+        use: [ 'style-loader', 'css-loader' ]
+      },
+      {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000
+        }
       }
+
     ]
   },
   plugins: [

@@ -7,6 +7,9 @@ import { Router, Route, Link, hashHistory } from 'react-router';
 import { Whoops404 } from './Whoops404';
 import { Articles } from './Articles';
 
+import '../css/bootstrap.min.css';
+import '../css/styles.css';
+
 
 // Main class component for the app
 export class App extends React.Component {
