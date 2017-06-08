@@ -1,15 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Axios from 'axios';
 import _ from 'underscore';
 import { Router, Route, Link, hashHistory } from 'react-router';
 import { Whoops404 } from './Whoops404';
 import { Articles } from './Articles';
-
-import '../css/bootstrap.min.css';
-import '../css/styles.css';
-
 
 // Main class component for the app
 export class App extends React.Component {
