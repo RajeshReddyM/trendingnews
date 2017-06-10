@@ -4,6 +4,7 @@ import {Link} from 'react-router';
 import moment from 'moment';
 import _ from 'underscore';
 import FaClock from 'react-icons/lib/fa/clock-o';
+import {NavBar, Footer} from './app';
 
 // class component of Articles
 export class Articles extends React.Component {
@@ -55,13 +56,17 @@ export class Articles extends React.Component {
         });
 
         return (
-            <div className="container">
-                <div className="col-md-12 page-header">
-                    <h2 className="text-center capitalize"> {`${this.state.sourceId.split('-').join(' ')}'s articles`} </h2>
+            <div>
+                <NavBar/>
+                <div className="container">
+                    <div className="col-md-12 page-header">
+                        <h2 className="text-center capitalize"> {`${this.state.sourceId.split('-').join(' ')}'s articles`} </h2>
+                    </div>
+                    <div className="col-md-12">
+                        {articles}
+                    </div>
                 </div>
-                <div className="col-md-12">
-                    {articles}
-                </div>
+                <Footer/>
             </div>
         );
     }

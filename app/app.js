@@ -12,6 +12,27 @@ export class App extends React.Component {
     // Define app state
     constructor(props) {
         super(props);
+        this.state = {};
+    }
+
+    render() {
+        return (
+            <div>
+                <NavBar/>
+                <MainContainer/>
+                <Footer/>
+            </div>
+        )
+    }
+}
+
+
+// class component for Main Container
+class MainContainer extends React.Component {
+
+    // Define component state
+    constructor(props) {
+        super(props);
         this.state = {sources : [], filter: '', activeFilter: 'all'};
     }
 
@@ -82,6 +103,7 @@ export class App extends React.Component {
 
 }
 
+
 // News Source function component
 const Source = (props) => {
     let source = props.sourceVal;
@@ -99,6 +121,28 @@ const Source = (props) => {
             </div>
         </div>
     );
+}
+
+// Navbar function component
+export const  NavBar = (props) => {
+    return(
+        <nav className="navbar navbar-default">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <a className="navbar-brand" href="/trendingnews">Trending News </a>
+            </div>
+          </div>
+        </nav>
+    ) 
+}
+
+// Footer function component
+export const Footer = (props) => {
+    return(
+        <footer className="footer"> 
+            <div className="powered"> <b> Powered by <a href="https://newsapi.org" target="_blank"> NewsAPI.org </a> </b> </div> 
+        </footer>
+    )
 }
 
 render(
