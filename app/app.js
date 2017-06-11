@@ -5,6 +5,7 @@ import _ from 'underscore';
 import { Router, Route, Link, hashHistory } from 'react-router';
 import { Whoops404 } from './Whoops404';
 import { Articles } from './Articles';
+import FaNewsPaperO from 'react-icons/lib/fa/newspaper-o';
 
 // Main class component for the app
 export class App extends React.Component {
@@ -129,7 +130,7 @@ export const  NavBar = (props) => {
         <nav className="navbar navbar-default">
           <div className="container-fluid">
             <div className="navbar-header">
-              <a className="navbar-brand" href="/trendingnews">Trending News </a>
+              <a className="navbar-brand" href="/trendingnews"> <span className="logo"> <FaNewsPaperO/> </span> Trending News </a>
             </div>
           </div>
         </nav>
