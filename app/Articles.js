@@ -12,7 +12,7 @@ export class Articles extends React.Component {
     // Define state object
     constructor(props) {
         super(props);
-        this.state = {sourceId: props.routeParams.sourceId, articles: []};
+        this.state = {sourceId: props.routeParams.sourceId, sourceUrl: props.location.state.sourceUrl, articles: []};
     }
 
     componentWillMount() {
@@ -55,12 +55,14 @@ export class Articles extends React.Component {
             return <Article key={index} articleVal={ result } />
         });
 
+        let divStyle = {"backgroundImage": `url("https://icons.better-idea.org/icon?url=${this.state.sourceUrl}&size=70..120..200")`};
+
         return (
             <div>
                 <NavBar/>
                 <div className="container">
-                    <div className="col-md-12 page-header">
-                        <h2 className="text-center capitalize"> {`${this.state.sourceId.split('-').join(' ')}'s articles`} </h2>
+                    <div className="col-md-12">
+                        <div className="sourceImg" style={divStyle}> </div>
                     </div>
                     <div className="col-md-12">
                         {articles}

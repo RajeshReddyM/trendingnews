@@ -113,8 +113,8 @@ const Source = (props) => {
     return (
         <div className="col-md-2 col-sm-3 col-xs-6">
             <div className="source hovereffect">
-                <Link to={`/${source.id}/articles`}>
-                    <div className="img" style={divStyle} alt="Source image"> </div>
+                <Link to={{ pathname: `/${source.id}/articles`, search: '', state: {sourceUrl: `${source.url}`}}}>
+                    <div className="img" style={divStyle} alt={source.name}> </div>
                     <div className="overlay">
                         <h2>{source.name}</h2>
                     </div>
@@ -125,7 +125,7 @@ const Source = (props) => {
 }
 
 // Navbar function component
-export const  NavBar = (props) => {
+export const NavBar = (props) => {
     return(
         <nav className="navbar navbar-default">
           <div className="container-fluid">
