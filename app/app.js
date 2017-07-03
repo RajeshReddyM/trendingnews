@@ -6,6 +6,7 @@ import { Router, Route, Link, hashHistory } from 'react-router';
 import { Whoops404 } from './Whoops404';
 import { Articles } from './Articles';
 import FaNewsPaperO from 'react-icons/lib/fa/newspaper-o';
+import CONFIG from '../config/settings.json';
 
 // Main class component for the app
 export class App extends React.Component {
@@ -43,7 +44,7 @@ class MainContainer extends React.Component {
     }
 
     _fetchSources() {
-        const apiKey = '374c72675fbf452297caf055174956f7';
+        const apiKey = CONFIG.apiKey;
         Axios.get('https://newsapi.org/v1/sources', {
                   headers: { "X-Api-Key": apiKey }
                 }).then( response =>  {

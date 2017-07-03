@@ -5,6 +5,7 @@ import moment from 'moment';
 import _ from 'underscore';
 import FaClock from 'react-icons/lib/fa/clock-o';
 import {NavBar, Footer} from './app';
+import CONFIG from '../config/settings.json';
 
 // class component of Articles
 export class Articles extends React.Component {
@@ -21,7 +22,7 @@ export class Articles extends React.Component {
 
     // Fetch all the articles of specific news source
     _fetchArticles() {
-        const apiKey = '374c72675fbf452297caf055174956f7';
+        const apiKey = CONFIG.apiKey;
         const url = `https://newsapi.org/v1/articles?source=${this.state.sourceId}&apiKey=${apiKey}`;
         Axios.get(url)
                 .then( response =>  {

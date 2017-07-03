@@ -9,6 +9,10 @@
 .settings/
 bin/
 
+# Config Settings #
+###################
+config/
+
 # node modules #
 ##############
 node_modules/
