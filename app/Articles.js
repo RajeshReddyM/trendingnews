@@ -66,7 +66,9 @@ export class Articles extends React.Component {
                 <NavBar/>
                 <div className="container">
                     <div className="col-md-12">
-                        <div className="sourceImg" style={divStyle}> </div>
+                        <a href={`${sourceUrl}`}>
+                            <div className="sourceImg" style={divStyle}> </div>
+                        </a>
                     </div>
                     <div className="col-md-12">
                         {articles}
