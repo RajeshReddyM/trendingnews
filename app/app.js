@@ -114,7 +114,7 @@ const Source = (props) => {
     return (
         <div className="col-md-2 col-sm-3 col-xs-6">
             <div className="source hovereffect">
-                <Link to={{ pathname: `/${source.id}/articles`, search: '', state: {sourceUrl: `${source.url}`}}}>
+                <Link to={{ pathname: `/${source.id}/articles`, query: {sourceUrl: `${source.url}`}}}>
                     <div className="img" style={divStyle} alt={source.name}> </div>
                     <div className="overlay">
                         <h2>{source.name}</h2>

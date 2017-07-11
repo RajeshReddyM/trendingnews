@@ -13,7 +13,7 @@ export class Articles extends React.Component {
     // Define state object
     constructor(props) {
         super(props);
-        this.state = {sourceId: props.routeParams.sourceId, sourceUrl: props.location.state.sourceUrl, articles: []};
+        this.state = {articles: []};
     }
 
     componentWillMount() {
@@ -23,7 +23,8 @@ export class Articles extends React.Component {
     // Fetch all the articles of specific news source
     _fetchArticles() {
         const apiKey = CONFIG.apiKey;
-        const url = `https://newsapi.org/v1/articles?source=${this.state.sourceId}&apiKey=${apiKey}`;
+        const sourceId = this.props.routeParams.sourceId;
+        const url = `https://newsapi.org/v1/articles?source=${sourceId}&apiKey=${apiKey}`;
         Axios.get(url)
                 .then( response =>  {
                     console.log(response.data.articles);
@@ -56,7 +57,9 @@ export class Articles extends React.Component {
             return <Article key={index} articleVal={ result } />
         });
 
-        let divStyle = {"backgroundImage": `url("https://icons.better-idea.org/icon?url=${this.state.sourceUrl}&size=70..120..200")`};
+        const sourceUrl = this.props.location.query.sourceUrl;
+
+        let divStyle = {"backgroundImage": `url("https://icons.better-idea.org/icon?url=${sourceUrl}&size=70..120..200")`};
 
         return (
             <div>
